@@ -1,0 +1,202 @@
+%Definimos la clase del documento y cargamos las librerías
+\documentclass[a4paper]{report}
+\usepackage{parskip}%Para hacer que la primera línea de texto vaya alineada
+\usepackage[document]{}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+%paquetes para la portada azul
+\usepackage{afterpage}
+\usepackage{xcolor}
+%Para tener los elementos de texto en español
+\usepackage[spanish]{babel}
+%Hipervinculos para todo lo útil
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+%evitamos que rompa las palabras
+\usepackage[none]{hyphenat}
+%añadir ficheros externos
+\usepackage{subfiles}
+%soporte para anexos
+\usepackage{appendix}
+%importacion automatica de codigo en los anexos
+\usepackage{minted}
+%paquetes para figuras
+\usepackage{caption}
+\usepackage{subcaption}
+%paquete para fuentes
+\usepackage{amsfonts}
+%paquete de simbolos matematicos
+\usepackage{amsmath}
+%paquete para más símbolos
+\usepackage{amssymb}
+%Encabezados bonitos
+\pagestyle{headings}
+%paquete para posicionar figuras
+\usepackage[export]{adjustbox}
+
+
+%paquete para poner la bibliografia en la table of contents
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+%Cambiamos el espacio en blanco enorme que por defecto hay en las páginas inicio de capítulo
+\usepackage{titlesec}
+\titleformat{\chapter}[display]   
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}   
+\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+
+%para crear subsubsubsection
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%definimos el azul celeste
+\definecolor{AzulCeleste}{RGB}{31, 130, 192}
+
+%Ruta en la que pondremos las imágenes para el documento
+\graphicspath{ {imagenes/} }
+%Redifinimos el nombre que asigna babel spanish a las tablas (cuadro) a tabla
+\renewcommand{\spanishtablename}{Tabla}
+\renewcommand{\spanishlisttablename}{Índice de tablas}
+\renewcommand{\spanishcontentsname}{Índice}
+\renewcommand{\appendixname}{Anexos}
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
+
+% Definimos el comando de página en blanco
+\newcommand\paginablanco{%
+    \null
+    \thispagestyle{empty}%
+    \newpage}
+
+% Definimos el comando de página en blanco sin avanzar numeración
+\newcommand\paginablancosin{%
+    \paginablanco{}
+    \addtocounter{page}{-1}}
+
+%mayor anchura en las tablas
+\renewcommand{\arraystretch}{1.5}
+%mayor ancuhura en las fracciones
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+%coamdno escribir TFG
+\newcommand{\tfg}{Trabajo Fin de Grado }
+
+
+% Comenzamos el documento
+\begin{document}
+% Hacemos la portada
+\begin{titlepage}
+\pagecolor{AzulCeleste}\afterpage{\nopagecolor}
+
+\begin{figure}[!htb]
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=1\textwidth]{logo_upm_bn.png}
+   \end{minipage}\hfill
+   \begin{minipage}{0.5\textwidth}
+     \centering
+     \includegraphics[width=1\textwidth]{logo_etsisi_bn.png}
+   \end{minipage}
+\end{figure}
+
+%{\includegraphics[width=0.5\textwidth]{logo_etsisi_bn.png}\par}
+{\bfseries\Huge \textcolor{white}{Generador Procedimental de Laberintos Parcialmente no Euclidianos en Realidad Virtual} \par}
+\vfill
+{\Large \textcolor{white}{Proyecto Fin de Grado} \par}
+\vfill
+{\Large \textcolor{white}{Grado en Ingeniería del Software} \par}
+\vfill
+{\Large \textcolor{white}{Autor:} \par}
+{\Large \textcolor{white}{Álvaro López Cruz} \par}
+\vfill
+{\Large \textcolor{white}{Tutor:} \par}
+{\Large \textcolor{white}{Jesús Mayor Márquez} \par}
+\vfill
+{\Large \textcolor{white}{Fecha:} \par}
+{\Large \textcolor{white}{13 - 07 - 2021} \par}
+\newpage
+
+\thispagestyle{empty}
+\centering % Para centrar la portada
+% Para entender los siguientes comandos, consúltese los siguientes enlaces
+% https://manualdelatex.com/tutoriales/crear-una-portada
+% https://manualdelatex.com/tutoriales/tipo-de-letra
+{\scshape\Large  Universidad Politécnica de Madrid \par}
+{\scshape\Large Escuela Técnica Superior de Ingeniería de Sistemas Informáticos \par}
+\vfill
+{\includegraphics[width=1\textwidth]{logo_etsisi.png}\par}
+\vfill
+{\bfseries\LARGE Generador Procedimental de Laberintos Parcialmente no Euclidianos en Realidad Virtual \par}
+\vfill
+{\Large Proyecto Fin de Grado \par}
+\vfill
+{\Large Grado en Ingeniería del Software \par}
+\vfill
+{\Large Curso académico 2020-2021 \par}
+\vfill
+{\Large Autor: \par}
+{\Large Álvaro López Cruz \par}
+\vfill
+{\Large Tutor: \par}
+{\Large Jesús Mayor Márquez \par}
+
+\end{titlepage}
+
+\pagenumbering{Roman} % para comenzar la numeracion de paginas en numeros romanos
+
+% Agradecimientos
+\chapter*{}
+\thispagestyle{empty}
+\addcontentsline{toc}{section}{Agradecimientos} % si queremos que aparezca en el índice
+\begin{flushright}
+\textit{Dedicado a mi familia, pareja y amigos, sobre todo a mis padres y mis hermanas. Gracias por todo el apoyo incondicional que me habéis dado siempre y por confiar en mí. Soy quien soy gracias a vosotros.}
+\end{flushright}
+
+\chapter*{Resumen} % si no queremos que añada la palabra "Capitulo"
+\addcontentsline{toc}{section}{Resumen} % si queremos que aparezca en el índice
+
+
+Las tecnologías de realidad virtual, en la actualidad, han conseguido avances que permiten a los usuarios sumergirse en escenarios y experimentar situaciones muy similares o indistinguibles de la realidad, cuyo principal límite es la creatividad e imaginación de los desarrolladores. Al tener disponibles dispositivos de Realidad Virtual con hardware potente, podemos crear estos escenarios con resoluciones y campos de visión muy altos, acentuando la inmersión en el entorno.\vspace{2mm}\newline
+Esta sensación de presencia hace que, en general, los usuarios actúen sin tener en cuenta el entorno real alrededor de ellos o tengan que moverse con precaución para evitar golpearse. Esto añade otra limitación a la Realidad Virtual, ya que, aunque tengamos la posibilidad de crear escenarios casi infinitos, si el usuario está limitado por el espacio tridimensional disponible no puede explorarlos. Este Trabajo de Fin de Grado pretende ser la base de futuras investigaciones sobre cómo evitar este problema y qué técnicas utilizar para que el espacio de trabajo real no suponga una limitación.\vspace{2mm}\newline
+En este contexto, a lo largo del proyecto, se expone el proceso realizado para crear laberintos tridimensionales generados procedimentalmente basados en esce- narios espacialmente imposibles. Para crearlos tendremos en cuenta el espacio de trabajo que tiene disponible el usuario para que, a la hora de generarlo, pueda moverse libremente por él sin que éste suponga una limitación. Además, haremos uso de unos portales que usaremos para conectar las distintas zonas del laberinto y que nos servirán para mover al usuario donde sea necesario mientras este sigue dentro de su zona válida.\vspace{2mm}\newline
+Tras haber explicado los principales elementos sobre los que se basa el proyecto, crearemos, utilizando el efecto de los portales previamente mencionados, un algoritmo que permita generar laberintos que serían imposibles en el mundo real, y que permitan que el usuario pueda recorrerlo en cualquier dirección sin salirse de sus límites.\vspace{2mm}\newline
+Adicionalmente, para almacenar tanto el laberinto como sus diferentes partes, se utilizan diferentes estructuras de datos, de manera que, dinámicamente, se generen las partes del laberinto contiguas a donde está el usuario. También las utilizaremos para asegurarnos de que el escenario es correcto y no se producen bucles, de manera que siempre haya, por lo menos, un camino desde el inicio hasta el final.\vspace{2mm}\newline
+Esto último, como se podrá observar en los resultados obtenidos en este Trabajo de Fin de Grado, nos permite generar espacios prácticamente infinitos, ya que solo se renderizarán las partes absolutamente necesarias. Mediante la utilización de estos algoritmos, se crean infinidad de posibilidades para la creación de escenarios, ampliando el espacio explorable artificialmente mientras se dispone de un espacio de trabajo limitado.
+
+\chapter*{Abstract} % si no queremos que añada la palabra "Capitulo"
+
+\addcontentsline{toc}{section}{Abstract} % si queremos que aparezca en el índice
+
+Nowadays, Virtual reality technologies have achieved advances that allow users to immerse themselves in scenarios and experience situations very similar or indistinguishable from reality, whose main limit is the creativity and imagination of developers. By having Virtual Reality devices with powerful hardware available, we can create these scenarios with very high resolutions and fields of view, accentuating the immersion in the environment.\vspace{2mm}\newline
+This sense of presence means that, in general, users act oblivious to the real environment around them or have to move with caution to avoid collisions. This adds another limitation to Virtual Reality, because although we have the possibility of creating almost infinite enviroments, if the user is limited by the three-dimensional space available, they can't be explored. This Final Degree Project is intended to be the basis for future research on how to avoid this problem and what techniques to use so that the real workspace does not pose a limitation.\vspace{2mm}\newline
+In this context, throughout the project, the process carried out to procedurally generate three-dimensional mazes based on spatially impossible scenarios is presented. To create them we will take into account the workspace available by the users so that, at the time of generating it, they can move freely through it without it being a limitation. In addition, we will make use of some portals that we will use to connect the different zones of the maze and that will serve us to move the user where it is necessary while he is still within his valid zone.\vspace{2mm}\newline
+After having explained the main elements on which the project is based, using the effect of the previously mentioned portals we will create an algorithm that allows us to generate mazes that would be impossible in the real world , and that allow the user to move in any direction without leaving its limits.\vspace{2mm}\newline
+Additionally, to store both the maze and its different parts, different data structures are used, so that, dynamically, the parts of the maze contiguous to where the user is are generated. We will also use them to make sure that the scenario is correct and no loops occur, so that there is always at least one path from the beginning to the end.\vspace{2mm}\newline
+This, as can be seen in the results obtained in this Final Degree Project, allows us to generate practically infinite spaces, since only the absolutely necessary parts will be rendered. By using these algorithms, infinite possibilities are created for the creation of scenarios, expanding the explorable space artificially while having a limited working space.
+
+\tableofcontents
+\newpage
+\newpage
+\listoffigures
+\newpage
+
+\paginablanco{}
+
+\chapter{Introducción}
+\pagenumbering{arabic}
+\subfile{secciones/introduccion}
+\chapter{Estado del arte}
+\subfile{secciones/estado_arte}
+\chapter{Desarrollo del proyecto}
+\subfile{secciones/desarrollo}
+\chapter{Resultados}
+\subfile{secciones/resultados}
+\chapter{Conclusiones y trabajos futuros}
+\subfile{secciones/conclusiones}
+\newpage
+\subfile{secciones/referencias}
+
+%tus anesos aqui
+
+\end{document}

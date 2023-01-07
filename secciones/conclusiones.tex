@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+Una vez se han expuesto los resultados obtenidos tras el desarrollo del proyecto, en este apartado se recogen las conclusiones obtenidas. Estas conclusiones no solo recogen las conclusiones sobre el desarrollo del proyecto en general, sino también unas conclusiones personales sobre como este proyecto me ha ayudado a seguir progresando, adquiriendo conocimiento y desarrollando diferentes compe- tencias. Además, en este capítulo se reflexiona sobre el impacto social y medio- ambiental que este proyecto pudiese tener.
+
+Finalmente se exponen las lineas futuras del proyecto, posibles ampliaciones, mejoras o adaptaciones del mismo.
+
+\section{Conclusiones}
+
+\subsection{Conclusiones generales del proyecto}
+
+En este Trabajo de Fin de Grado se ha desarrollado un proyecto en realidad virtual que se basa en la generación procedimental de entornos virtuales parcial- mente no euclidianos, con el objetivo de explorar de qué manera se pueden utilizar estos entornos para solucionar el problema del espacio de trabajo limitado, que se explica en la sección \ref{Workspace_Problem}.
+
+Los entornos virtuales no euclidianos son un campo que en la actualidad no se ha investigado lo suficiente como para sacar conclusiones sobre cómo afectan a la sensación de inmersión. Teniendo esto en cuenta, uno de los principales objetivos del proyecto es estudiar de qué manera se ve afectada la presencia del usuario al generar todo el espacio explorable utilizando este tipo de entornos.
+
+En realidad virtual, el espacio que rodea al usuario y sus partes explorables son una parte considerable de la experiencia. Por esto, es necesario que la transición entre las secciones que forman el laberinto sea lo más suave posible, de forma que para el usuario sea imperceptible, minimizando la pérdida de presencia en el entorno virtual. De esta manera se crea el efecto de contigüidad entre secciones, haciendo que lo que el usuario percibe sea un laberinto al completo. 
+
+Gracias a esto, se ha conseguido plantear una solución al problema del espacio de trabajo limitado, de forma que teniendo un espacio limitado es posible generar entornos procedimentalmente de longitudes potencialmente infinitas. Es necesario tener en cuenta que cuanto menor es el espacio que tiene disponible un usuario, menor es la variedad de los entornos generados, ya que se encuentran más limitaciones. Durante el desarrollo de este proyecto y para generar estos laberintos, se ha podido comprobar que el mínimo de espacio disponible debe ser de unos $6m^2$ para que exista una variedad suficiente en las características de las secciones.
+
+Para conseguir solucionar el problema, ha sido necesario también renderizar en la escena únicamente las partes necesarias del laberinto, ya que cuantos más objetos haya renderizados, peor rendimiento se consigue. Esto ha sido completamente necesario ya hace posible generar entornos de las longitudes que sean necesarias, por lo que al no tener ningún límite podría utilizarse en muchos campos.
+
+En conclusión, el desarrollo de este proyecto ha supuesto un gran reto y una muy buena experiencia, teniendo en cuenta que es mi primer contacto con el desarrollo de software en realidad virtual. La dificultad del desarrollo aumentó dado que fue necesario crear mi propia estructura de datos para utilizarla en el algoritmo procedimental, pero también permitió organizar el proyecto de manera coherente y simplificar algunos aspectos. El impacto de este Trabajo de Fin de Grado sobrepasa el de cualquier proyecto en el que haya trabajado antes dado que un funcionamiento incorrecto de la aplicación haría que un usuario se chocara contra una pared u objeto del mundo real.
+
+\subsection{Conclusiones personales}
+
+A lo largo del desarrollo de este proyecto me ha sido posible experimentar una iniciación en diferentes campos y tecnologías, además adquirir una serie de conocimientos sobre ellos.
+
+Dados los requisitos de este Trabajo de Fin de Grado, he podido utilizar los conocimientos ya adquiridos sobre ingeniería del software. Por ejemplo, al haber sido necesario crear una estructura de datos desde cero para almacenar el laberinto, se han utilizado multitud de conocimientos sobre programación orientada a objetos.
+
+La necesidad de buscar información sobre diferentes campos como por ejemplo los entornos no euclidianos o la realidad virtual me ha permitido entender mejor estos conceptos y como se aplican en el desarrollo de software. He podido experimentar que trabajar en un proyecto de este tipo utilizando herramientas relativamente recientes puede acarrear algunos problemas, aunque también pro- porciona algunas ventajas, ya que aunque la herramienta puede no estar madura del todo, incluye funcionalidades muy útiles.
+
+La utilización de Unity y del lenguaje C\# ha sido una experiencia muy positiva, ya que este motor gráfico es muy completo en general y no es demasiado difícil de utilizar incluso para un usuario nuevo. Una de sus principales ventajas es la extensa comunidad que tiene, ya que gracias a esto es muy sencillo encontrar la solución a muchos de los problemas que surgen durante el desarrollo. Utilizar C\# ha sido sencillo dado que es muy similar a otros lenguajes que ya había utilizado anteriormente para desarrollo de software.
+
+También cabe destacar la utilidad del software de control de versiones, en este caso git, que ha permitido llevar un control sobre el proyecto y que siempre estuviese organizado.
+
+En resumen, creo que este proyecto ha sido una experiencia muy positiva, y me ha ayudado a mejorar mucho como ingeniero de software, permitiéndome desarrollar diferentes competencias y adquirir multitud de conocimientos, tanto sobre campos que había explorado anteriormente como sobre campos nuevos para mí.
+
+\section{Impacto social y medioambiental}
+
+Como se ha mencionado durante del proyecto, la realidad virtual y los entornos no euclidianos son campos con mucho futuro y que aún no se han desarrollado completamente.
+
+Teniendo esto en cuenta, el impacto social que se pretende conseguir con este proyecto es incentivar el uso de los entornos no euclidianos en realidad virtual para solucionar el problema del espacio de trabajo limitado. Este Trabajo de Fin de Grado pretende ser también la base para futuras investigaciones sobre la generación procedimental de entornos virtuales explorables por usuarios utilizando Room Scale.
+
+El impacto ambiental resultante es mínimo o nulo ya que este proyecto se basa en una aplicación informática que necesita unos recursos mínimos para poder ejecutarse y un dispositivo de realidad virtual.
+
+\section{Lineas futuras}
+
+Aunque tras el desarrollo del proyecto se ha obtenido un resultado que satisface los objetivos propuestos, al ser el problema a solucionar tan grande, existe margen para muchas mejoras y ampliaciones.
+
+Los entornos virtuales que se proponen son muy simples ya que la prioridad del proyecto es generar los laberintos correctamente y con la mayor aleatoriedad posible. Estos entornos podrían ser incluso más inmersivos añadiendo texturas o materiales a los objetos que los forman. Además podrían añadirse también de manera procedimental diferentes objetos con los que los usuarios pudieran interactuar, sacando el máximo partido al dispositivo de realidad virtual y aumentando de nuevo la sensación de inmersión y la variedad de entornos posibles.
+
+También es posible ajustar las probabilidades del algoritmo procedimental de manera que se optimice para un uso específico. Por ejemplo, se puede definir el rango de longitudes posibles de las ramificaciones creadas, o del camino principal del laberinto, y también especificar la probabilidad de que se cree una ramificación si las condiciones lo permiten. Además, podrían utilizarse otro tipo de algoritmos que utilicen la estructura de datos más a fondo, sin limitar la altura de las secciones o el número de pasillos laterales.
+
+Como el objetivo principal del proyecto es proponer una solución al problema del espacio de trabajo, también es posible mejorar el funcionamiento de la aplicación detectando sus dimensiones automáticamente, utilizando las cámaras integradas en el dispositivo de realidad virtual. De esta manera se podría hacer un mapa tridimensional de la habitación y utilizar las dimensiones detectadas para generar el entorno virtual.
+
+Por último, como se ha demostrado a lo largo de este documento, los entornos no euclidianos son una buena solución al utilizar el método Room Scale para el movimiento por el espacio, y permiten aumentar la sensación de presencia en el entorno virtual. Además, en trabajos futuros podrían utilizarse para generar cualquier tipo de entorno virtual, y no solo laberintos como los que se proponen en este proyecto.
+
+\end{document}
